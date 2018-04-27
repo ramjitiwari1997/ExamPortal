@@ -38,7 +38,7 @@ app.get('/welcome',function(req,res){
 app.get("*",function(req,res){
 res.send("");
 });
-app.listen(12345,()=>{
+app.listen(process.env.PORT||1234,()=>{
 console.log("Server started");
 }
 );
