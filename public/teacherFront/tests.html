@@ -1,0 +1,47 @@
+
+<div>
+    <table border="1">
+            <tr><th> Name:</th>
+                <td><input type="text" placeholder="Enter Test Name" ng-model="testname"></td>
+            </tr>
+            <tr rowspan=""2><th> Duration:</th>
+                <td><input type="text" ng-model="houre" placeholder="Houre"></td>
+                <td><input type="text" placeholder="Minute" ng-model="minute"></td>
+            </tr>
+        
+    </table>
+    <button type="reset">Reset</button>
+    <button type="button" ng-click="saveTest()">SAVE</button>
+</div>
+<div class="container">
+    <legend>Tests</legend>
+    <fieldset>
+        <table border="1" class="table table-hover">
+            <thead>
+                <td>Test Name</td>
+                <td colspan="2">TestDuration</td>
+                <td>isPublish</td>
+                <td colspan="3" style="text-align: center">operations</td>
+
+            </thead>
+            <tbody>
+            <tr ng-repeat="test in testdata">
+                <td>{{test.testname}}</td>
+                <td>{{test.houre}}</td>
+                <td>{{test.minute}}</td>
+                <td>{{test.isPublish}}</td>
+                <td><button type="button" class="btn btn-default btn-sm" ng-click="edit(test.testname)">
+                    <span class="glyphicon glyphicon-edit" >
+                    </span> Edit
+                      </button></td>
+                <td><button type="button" class="btn btn-default btn-sm" ng-click="delete(test.testname)">
+                    <span class="glyphicon glyphicon-trash"></span> Trash 
+                      </button></td>
+                <td><button type="button" class="btn btn-default btn-sm" ng-click="publish(test.testname)">
+                        <span class="glyphicon glyphicon-thumbs-up"></span>Publish
+                      </button></td>
+            </tr>
+        </tbody>
+        </table>
+    </fieldset>
+</div>

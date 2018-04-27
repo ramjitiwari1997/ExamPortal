@@ -1,0 +1,13 @@
+app.config(function($routeProvider,$locationProvider){
+    $locationProvider.hashPrefix('');
+    $routeProvider.when('/tests',{
+        templateUrl:"../teacherFront/tests.html",
+        controller:"teacherTestsCtrl"
+    }).when('/addQuestion',{
+        templateUrl:"../teacherFront/question.html",
+        controller:"teacherQuestionCtrl"
+    }).otherwise({
+        templateUrl:"../teacherFront/home.html",
+        controller:"teacherHomeCtrl"
+    });
+})

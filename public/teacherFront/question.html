@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="../css/tests.css">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:24%">
+    <h3 class="w3-bar-item">Tests</h3>
+    <div class="tests">
+        <table>
+            <tr ng-repeat="key in data">
+                <td><button ng-click="printQuestions(key.testname)">{{key.testname}}</button></td>
+            </tr>
+        </table>
+    </div>
+  </div>
+  <center><h1>{{chooseTest}}</h1></center>
+  <div ng-show="questiondiv">
+<div style="float:right;width:75%;">
+        <legend>addQuestions</legend>
+       <center> <h1>Test Name:{{testname}}</h1></center>
+        <fieldset>
+            <form ng-submit="saveQuestion()">
+        <table>         
+    <tr>
+        <td><label for="">Question:</label></td>
+        <td><input type="text" ng-model="form.question" placeholder="Type question"></td>
+    </tr>
+    <tr>
+        <td><label for="">Option1</label></td>
+        <td><input type="text" ng-model="form.optn1"></td>
+    </tr>
+    <tr>
+        <td><label for="">Option2</label></td>
+        <td><input type="text" ng-model="form.optn2"></td>
+    </tr>
+    <tr> 
+        <td><label for="">Option3</label></td>
+        <td><input type="text" ng-model="form.optn3"></td>
+    </tr>
+    <tr>
+        <td><label for="">Option4</label></td>
+        <td><input type="text" ng-model="form.optn4"></td>
+    </tr>
+    <tr>
+        <td><label for="">Answer</label></td>
+        <td><input type="text" ng-model="form.ans" placeholder="Type Answer"></td>
+    </tr>
+    <tr>
+        <td><label for="">Positive Marks:</label></td>
+        <td><input type="text" ng-model="form.positivemark" value="0"></td>
+    </tr>
+    <tr>
+        <td><label for="">Negative Mark:</label></td>
+        <td><input type="text" ng-model="form.negativemark" value="0"></td>
+    </tr>
+        </table>
+        <button type="reset">Reset</button>
+        <button type="submit">Save</button>
+        </form>
+    </fieldset>
+    </div>
+    <div style="float:right;width:75%;">
+        <legend>Questions</legend>
+        <fieldset>
+          <table border="1">
+            <thead>
+                <td>Question No.</td>
+                <td>Question</td>
+                <td>Option1</td>
+                <td>Option2</td>
+                <td>Option3</td>
+                <td>Option4</td>
+                <td>Answer</td>
+                <td>Positive Mark</td>
+                <td>Negative Mark</td>
+                <td colspan="2">Operations</td>
+            </thead>
+            <tbody>
+                <tr ng-repeat="question in questiondata">
+                    <td>{{question.queno}}</td>
+                    <td ng-model="que">{{question.question}}</td>
+                    <td ng-model="optn1">{{question.optn1}}</td>
+                    <td ng-model="optn2">{{question.optn2}}</td>
+                    <td ng-model="optn3">{{question.optn3}}</td>
+                    <td ng-model="optn4">{{question.optn4}}</td>
+                    <td ng-model="ans">{{question.ans}}</td>
+                    <td ng-model="pstvmark">{{question.positivemark}}</td>
+                    <td ng-model="ngtivemark">{{question.negativemark}}</td>
+                    <td><button type="button" class="btn btn-default btn-sm" ng-click="edit(question.queno)">
+                        <span class="glyphicon glyphicon-edit" >
+                        </span> Edit
+                          </button></td>
+                    <td><button type="button" class="btn btn-default btn-sm" ng-click="delete(question.queno)">
+                        <span class="glyphicon glyphicon-trash"></span> Trash 
+                          </button></td>
+                </tr>
+            </tbody>
+          </table>
+        </fieldset>
+    </div>
+</div>
+</div>

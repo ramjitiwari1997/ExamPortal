@@ -1,0 +1,37 @@
+var objectmaker={
+Reg:function(id,name,password,Tests){
+    this.id=id;
+    this.name=name;
+    this.password=password;
+    this.Tests=Tests;
+},
+Login:function(id,password){
+    this.id=id;
+    this.password=password;
+},
+makeTest:function(testname,isPublish,houre,minute,Questions){
+this.testname=testname
+this.isPublish=isPublish;
+this.houre=houre;
+this.minute=minute;
+this.Questions=Questions;
+},
+makeTeacherid:function(id){
+    this.id=id;
+},
+makeTestname:function(testname){
+    this.testname=testname;
+},
+makeQuestion:function(queno,question,optn1,optn2,optn3,optn4,ans,positivemark,negativemark){
+    this.queno=queno;  
+    this.question=question;
+    this.optn1=optn1;
+    this.optn2=optn2;
+    this.optn3=optn3;
+    this.optn4=optn4;
+    this.ans=ans;
+    this.positivemark=positivemark;
+    this.negativemark=negativemark;
+  },
+}
+module.exports=objectmaker;

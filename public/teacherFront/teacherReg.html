@@ -1,0 +1,87 @@
+<style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    height: 7.5%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: relative;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+a.cancelbtn,button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+/* Extra styles for the cancel button */
+a.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+    
+}
+
+/* Float cancel and signup buttons and add an equal width */
+a.cancelbtn,.signupbtn {
+    float: left;
+    width: 50%;
+}
+
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    a.cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+</style>
+<body>
+
+<center><h2>Teacher Registration  Form</h2></center>
+
+<form ng-submit="doRegistration()" style="border:1px solid #ccc">
+ <div class="container" style="width:70%;height:50%">
+     <label>Teacher ID:</label>
+     <input type="text" placeholder="Enter Teacher Id" ng-model="form.id" required>
+     <label for=""><b>Teacher
+      Name:</b></label>
+     <input type="text" placeholder="Enter name" ng-model="form.name" required>
+      
+    <label><b>One Time Password</b></label>
+    <input type="password" placeholder="Enter OTP provided by institution"  ng-model="form.otp" required>
+
+    <label><b>New Password:</b></label>
+    <input type="password" placeholder="Enter new Password" ng-model="form.password" required>
+
+    <label><b>Repeat New Password</b></label>
+    <input type="password" placeholder="Repeat new Password" ng-model="form.passwordrepeat" required>
+    <span style="color:red">{{pswrepeaterr}}</span>
+    <input type="checkbox" checked="checked"> Remember me
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+    <a  id="lacal" class="cancelbtn" ng-href="#">Cancel</a>
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+</form>
