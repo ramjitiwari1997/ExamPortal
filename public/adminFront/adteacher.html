@@ -1,1 +1,19 @@
-<h1>Teacher</h1>
+<form ng-submit="add()">
+    <table>
+        <tr>
+            <td><label for="">Teacher Name</label></td>
+            <td><input type="text" ng-model="form.name"></td>
+        </tr>
+        <tr>
+            <td><label for="">Teacher id:</label></td>
+            <td><input type="text" ng-model="form.id"></td>
+        </tr>
+        <td><label for="">Teacher Department:</label></td>
+        <td><input type="text" ng-model="form.dept"></td>
+        <tr>
+            <td><label for="">Password:</label></td>
+            <td><input type="text" ng-model="form.psw"></td>
+        </tr>
+    </table>
+    <button type="submit">Add Teacher</button>
+    </form>

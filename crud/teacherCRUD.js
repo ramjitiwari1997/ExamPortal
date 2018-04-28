@@ -1,4 +1,5 @@
 const db=require("./teacherSchema/registrationSchema.js");
+const admindb=require("./adminSchema/adminSchma.js");
 var operation={
 doRegist(obj,res){
 db.create(obj,function(err){
@@ -11,7 +12,8 @@ db.create(obj,function(err){
 });
 },
 doLogin(obj,req,res){
-db.find(obj,function(error,docs){
+    console.log(obj.id);
+    admindb.aggregate([{$match:{teachers:obj}},{$count:"m"}],function(error,docs){
     if(error){
         res.send({data:"error"});
     }

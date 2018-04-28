@@ -12,6 +12,9 @@ app.config(function($routeProvider,$locationProvider){
     }).when("/addstd",{
         templateUrl:"../adminFront/adstudent.html",
         controller:"adStudentCtrl"
+    }).when("/addteacher",{
+        templateUrl:"../adminFront/adteacher.html",
+        controller:"adTeacherCtrl"
     }).when("/operations",{
         templateUrl:"../adOperations.html",
         controller:"adOperationsCtrl"
