@@ -23,7 +23,6 @@ app.use('/teacher',teacher);
 
 
 
-
 app.get('/welcome',function(req,res){
     if(req.session.uid){
         let path=require("path");

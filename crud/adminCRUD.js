@@ -24,8 +24,8 @@ else{
 
 
 addTeacher:function(req,res,obj){
-    //console.log(obj);
-db.update({$push:{'teachers':obj}},function(err){
+    let obj1={id:obj.id,password:obj.pwd}
+db.update({$push:{'teachers':obj1}},function(err){
     if(err){
         console.log("error accured");
     }
@@ -43,6 +43,6 @@ teacherdb.create(obj,function(err){
     }
 });
 
-    }
+}
 }
 module.exports=operations;

@@ -1,0 +1,43 @@
+<div class="container">
+  <form ng-submit="addstd()">
+    <div class="form-group">
+      <label for="">Student Name :</label>
+      <input type="text" class="form-control" ng-model="form.name" placeholder="Enter Student Name">
+    </div>
+    <div class="dropdown">
+            <label for="">Student Department :</label><br>
+                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Select Department
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Computer Science And Engineering</a></li>
+                      <li><a href="#">Electrical Engineering</a></li>
+                      <li><a href="#">Electronics And Communication Engineering</a></li>
+                      <li><a href="#">Mechanical Engineering</a></li>
+                      <li><a href="#">Civil Engineering</a></li>
+                    </ul>
+                  </div>
+    <div class="form-group">
+        <label for="">Student Roll No :</label>
+        <input type="number" class="form-control" placeholder="Enter Student Roll No :" ng-model="form.roll">
+      </div>
+      <div class="form-group">
+        <label for="">Student Email:</label>
+        <input type="email" class="form-control" placeholder="Enter Student Email :" ng-model="form.mail">
+      </div>
+      <div class="form-group">
+        <label for="">Student Mobile Number :</label>
+        <input type="number" class="form-control" placeholder="Enter Student Mobile No :" ng-model="form.mob">
+      </div>
+      <div class="form-group">
+        <label for="">Password:</label>
+        <input type="password" class="form-control"  placeholder="Enter Student Password" ng-model="form.pwd">
+      </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Add Student</button>
+  </form>
+</div>
+<h1>LIST OF STUDENTS</h1>
+
+

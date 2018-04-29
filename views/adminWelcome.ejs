@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin</title>
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script  src="../bower_components/angular-route/angular-route.min.js"></script>
     <script  src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script  src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen"> 
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script  src="../bower_components/angular-route/angular-route.min.js"></script>
+    
     <script  src='../js/app.js' type='text/javascript'></script>
     <script src="../js/admin/model/adminModel.js"></script>
     <script src="../js/admin/controller/adminDashCtrl.js"></script>
@@ -16,96 +18,88 @@
     <script src="../js/admin/controller/adStudentCtrl.js"></script>
     <script src="../js/admin/controller/adOperationsCtrl.js"></script>
     <script src="../js/admin/routes/route.js"></script>
-    <style>
-    .navbar {
-    overflow: hidden;
-    background-color: #333;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
-
-.dropdown .dropbtn {
-    font-size: 16px;    
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-}
-
-.navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-    
-    
-    </style>
 </head>
-<body ng-app="myapp">
+<style>
+#header{
+	width:100%;
+    display: flex;
+    background-color: #274f75;   
+}
 
-  <div class="navbar">
-    <a href="#home">Home</a>
-    <div class="dropdown">
-      <button class="dropbtn">Student 
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="#addstd">Add Student</a>
-        <a href="#">View&Modify</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">Faculty 
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="#addteacher">Add Faculty</a>
-        <a href="#">View&Modify</a>
-      </div>
-    </div>
-    <span style="color:red;float: right;">welcome Mr. <%=adminName%></span>
-  </div>
-  
+#header img{
+    margin-left: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+#header h1{
+    color: white;
+    margin-left: 50px;
+    text-shadow: 5px 5px red;
+    font-size: 45px;
+    margin-top: 45px;
+}
+.greeen{
+background-color: #82BB0E !important;
+}
+.nav-background :hover , open{
+    background-color: white !important;
+}
+.txtcolor{
+    color: black !important;
+    font-weight: bold !important;
+}
+nav li{
+    font-size: 15px;
+}
+.pl-50{
+    padding-left: 50px;
+}
+.pt-15{
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.mr-none{
+    margin-right: 0 !important;
+}
+
+</style>
+<body ng-app="myapp">
+<div id="header">
+        
+        <img src="../images/rkgitlogo.jpg" alt="">
+         <h1>RAJ KUMAR GOEL INSTITUTE OF TECHNOLOGY</h1>
+        
+</div>
+<div class="row mr-none">
+  <nav class="navbar navbar-inverse greeen">
+        <div class="container-fluid col-lg-10 pl-50">
+          <div class="navbar-header  ">
+            <a class="active navbar-brand txtcolor" href="#">ONLINE edu-BASE SYSTEM</a>
+          </div>
+          <ul class="nav navbar-nav nav-background">
+            <li class="act "><a href="#" class="txtcolor">Home</a></li>
+            <li class="dropdown"><a class="dropdown-toggle txtcolor" data-toggle="dropdown" href="#">Student <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a ng-href="#addstd">Add Student</a></li>
+                <li><a ng-href="#modifystudent">Modify Student</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle txtcolor" data-toggle="dropdown" href="#">Teacher <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a ng-href="#addteacher">Add Teacher</a></li>
+                  <li><a ng-href="#modifyteacher">Modify Teacher</a></li>
+                </ul>
+              </li>
+          </ul>
+        </div>
+        <div class="col-lg-2 pt-15 pl-50">Welcome <%=adminName%></div>
+    </nav>
+</div>
+   
+        
+  <div>
      <ng-view>
 
      </ng-view>

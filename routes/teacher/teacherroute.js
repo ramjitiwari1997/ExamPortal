@@ -2,6 +2,17 @@ var express=require("express");
 var router=express.Router();
 var objectMaker=require("../../crud/teacherSchema/objectMaker");
 var crud=require("../../crud/teacherCRUD.js");
+
+function sessionChecker(req,res){
+    if(req.session.teacherid){
+        return true;
+    }
+    else{
+        res.send({data:"session-expired"})
+        return false;
+    }
+}
+
 router.post('/doRegistration',function(req,res){
     let form=req.body.form;
     let Tests=[];
@@ -9,15 +20,21 @@ router.post('/doRegistration',function(req,res){
     crud.doRegist(obj,res);
     console.log(form.password);
 });
+
 router.post('/doLogin',function(req,res){
 let form=req.body.form;
 let obj=new objectMaker.Login(form.id,form.password);
 crud.doLogin(obj,req,res);
 });
+
+
+
+
+
 router.post('/saveTest',function(req,res){
-    if(req.session.teacherid){
+    if(sessionChecker(req,res)){
     let obj=req.body.form;
-    console.log(obj);
+    console.log("called");
     let testname=obj.testname;
     let houre=obj.houre;
     let minute=obj.minute;
@@ -28,46 +45,33 @@ router.post('/saveTest',function(req,res){
     let teacherObj=new objectMaker.makeTeacherid(teacherid);
     crud.addTest(teacherObj,prepareObject,req,res);
     }
-    else{
-        res.send({data:"session-expired"})
-    }
-    
 
 });
 router.post('/getData',function(req,res){
-    if(req.session.teacherid){
+         if(sessionChecker(req,res)){
          let teacherid=req.session.teacherid;
          let teacherObj=new objectMaker.makeTeacherid(teacherid);
          crud.sendData(teacherObj,req,res);
-    }
-    else{
-        res.send({data:"session-expired"});
-    }
+         }
+    
 });
 
 
 router.post('/getTests',function(req,res){
-    if(req.session.teacherid){
+        if(sessionChecker(req,res)){
         let teacherid=req.session.teacherid;
         let teacherObj=new objectMaker.makeTeacherid(teacherid);
         crud.sendTests(teacherObj,req,res);
-    }
-    else{
-        console.log("session expired");
-        res.send({data:"session-expired"});
-    }
+        }
 });
 
 router.post('/deleteTest',function(req,res){
-    if(req.session.teacherid){
+    if(sessionChecker(req,res)){
        let teacherid=req.session.teacherid;
        let teacherObj=new objectMaker.makeTeacherid(teacherid);
        let testname=req.body.form.testname;
        let testnameObj=new objectMaker.makeTestname(testname);
        crud.deleteTest(teacherObj,testnameObj,req,res);
-    }
-    else{
-        res.send({data:"session-expired"});
     }
 });
 router.get('/dashboard',function(req,res){
@@ -82,7 +86,7 @@ router.get('/dashboard',function(req,res){
     }
 });
 router.post("/saveQuestion",function(req,res){
-    if(req.session.teacherid){
+    if(sessionChecker(req,res)){
         let teacherid=req.session.teacherid;
         let testname=req.body.form.testname;
         let question=req.body.form.question;
@@ -106,20 +110,14 @@ router.post("/saveQuestion",function(req,res){
         crud.saveQuestion(teacherObj,testname,QuestionObj,req,res);
         }
     }
-    else{
-        res.send({data:"session-expired"}); 
-    }
 });
 router.post('/getQuestions',function(req,res){
-if(req.session.teacherid){
+    if(sessionChecker(req,res)){
  let teacherid=req.session.teacherid;
  let testname=req.body.form.testname;
  let teacherObj=new objectMaker.makeTeacherid(teacherid);
  let testnameObj=new objectMaker.makeTestname(testname);
  crud.sentQuestion(teacherid,testnameObj,req,res);
-}
-else{
-    res.send({data:"session-expired"});
-}
+    }
 });
 module.exports=router;

@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="bower_components/">
   <script src="js/app.js"></script>
   <script src="js/student/model/studentModel.js"></script>
   <script src="js/teacher/model/teacherModel.js"></script> 
@@ -23,6 +26,7 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/modal.css">
   <link rel="stylesheet" type="text/css" href="css/style.css" />
+  
 <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" /><![endif]-->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -44,16 +48,11 @@
         <li><a ng-href="#studentLogin">Student</a></li>
         <li><a ng-href="#teacherLogin">Faculty</a></li>
         <li><a ng-href="#adminLogin">Admin</a></li>    
-        <li><a ng-href="about.html">About Us</a></li>
+        <li><a ng-href="#about">About Us</a></li>
       </ul>
   </div>
-    
-
-
-
-
-
-<div>
+  
+  <div style="padding-top: 60px;">
 <ng-view> 
 </ng-view>
 </div>

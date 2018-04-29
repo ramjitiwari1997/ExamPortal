@@ -1,19 +1,42 @@
-<form ng-submit="add()">
-    <table>
-        <tr>
-            <td><label for="">Teacher Name</label></td>
-            <td><input type="text" ng-model="form.name"></td>
-        </tr>
-        <tr>
-            <td><label for="">Teacher id:</label></td>
-            <td><input type="text" ng-model="form.id"></td>
-        </tr>
-        <td><label for="">Teacher Department:</label></td>
-        <td><input type="text" ng-model="form.dept"></td>
-        <tr>
-            <td><label for="">Password:</label></td>
-            <td><input type="text" ng-model="form.psw"></td>
-        </tr>
-    </table>
-    <button type="submit">Add Teacher</button>
-    </form>
+    <div class="container">
+  <form ng-submit="add()">
+    <div class="form-group">
+      <label for="">Teacher Name :</label>
+      <input type="text" class="form-control" ng-model="form.name" placeholder="Enter Teacher Name">
+    </div>
+    <div class="dropdown">
+            <label for="">Teacher Department :</label><br>
+                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Select Department
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Computer Science And Engineering</a></li>
+                      <li><a href="#">Electrical Engineering</a></li>
+                      <li><a href="#">Electronics And Communication Engineering</a></li>
+                      <li><a href="#">Mechanical Engineering</a></li>
+                      <li><a href="#">Civil Engineering</a></li>
+                    </ul>
+                  </div>
+    <div class="form-group">
+        <label for="">Teacher ID :</label>
+        <input type="number" class="form-control" placeholder="Enter Teacher Id :" ng-model="form.id">
+      </div>
+      <div class="form-group">
+        <label for="">Teacher Email:</label>
+        <input type="email" class="form-control" placeholder="Enter Teacher Email :" ng-model="form.mail">
+      </div>
+      <div class="form-group">
+        <label for="">Teacher Mobile Number :</label>
+        <input type="number" class="form-control" placeholder="Enter Teacher Mobile No :" ng-model="form.mob">
+      </div>
+      <div class="form-group">
+        <label for="">Password:</label>
+        <input type="password" class="form-control"  placeholder="Enter Teacher Password" ng-model="form.pwd">
+      </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Add Teacher</button>
+  </form>
+</div>
+
+

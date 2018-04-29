@@ -7,6 +7,8 @@ app.config(function($routeProvider,$locationProvider){
     
         $routeProvider.when('/',{
             templateUrl:"home.html",
+        }).when('/about',{
+            templateUrl:"about.html",
         }).otherwise({template:"Error Page, No match Found",redirectTo:"/"});
         
     });

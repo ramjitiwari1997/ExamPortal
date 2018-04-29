@@ -1,19 +1,43 @@
-<form ng-submit="addstd()">
-<table>
-    <tr>
-        <td><label for="">Student Name</label></td>
-        <td><input type="text" ng-model="form.name"></td>
-    </tr>
-    <tr>
-        <td><label for="">Student Roll. No.</label></td>
-        <td><input type="text" ng-model="form.rollno"></td>
-    </tr>
-    <td><label for="">Student Department</label></td>
-    <td><input type="text" ng-model="form.dept"></td>
-    <tr>
-        <td><label for="">Password</label></td>
-        <td><input type="text" ng-model="form.psw"></td>
-    </tr>
-</table>
-<button type="submit">Add Student</button>
-</form>
+
+<div class="container">
+  <form ng-submit="addstd()">
+    <div class="form-group">
+      <label for="">Student Name :</label>
+      <input type="text" class="form-control" ng-model="form.name" placeholder="Enter Student Name" autocomplete autofocus>
+    </div>
+    <div class="dropdown">
+            <label for="">Student Department :</label><br>
+                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Select Department
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Computer Science And Engineering</a></li>
+                      <li><a href="#">Electrical Engineering</a></li>
+                      <li><a href="#">Electronics And Communication Engineering</a></li>
+                      <li><a href="#">Mechanical Engineering</a></li>
+                      <li><a href="#">Civil Engineering</a></li>
+                    </ul>
+                  </div>
+    <div class="form-group">
+        <label for="">Student Roll No :</label>
+        <input type="number" class="form-control" placeholder="Enter Student Roll No :" ng-model="form.roll" autocomplete>
+      </div>
+      <div class="form-group">
+        <label for="">Student Email:</label>
+        <input type="email" class="form-control" placeholder="Enter Student Email :" ng-model="form.mail" autocomplete="">
+      </div>
+      <div class="form-group">
+        <label for="">Student Mobile Number :</label>
+        <input type="number" class="form-control" placeholder="Enter Student Mobile No :" ng-model="form.mob" autocomplete>
+      </div>
+      <div class="form-group">
+        <label for="">Password:</label>
+        <input type="password" class="form-control"  placeholder="Enter Student Password" ng-model="form.pwd">
+      </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Add Student</button>
+  </form>
+</div>
+
+

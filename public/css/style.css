@@ -21,12 +21,12 @@ img{
 	visibility:hidden;
 }
 #page{
-	background:url(../images/background.jpg) no-repeat center 180px;
 	width:100%;
 }
 #header{
 	background:url(../images/bg-header.gif) repeat-x;
 	height:auto;
+	top: 0;
 	overflow:hidden;
 	position:relative;
 }
@@ -131,6 +131,8 @@ img{
 #footer{
 	background:#274F75 url(../images/bg-footer.gif) repeat-x;
 	min-height:82px;
+	position: fixed;
+	bottom: 0;
 	width:100%;
 }
 #footer div{

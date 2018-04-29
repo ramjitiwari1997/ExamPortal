@@ -18,5 +18,7 @@ app.config(function($routeProvider,$locationProvider){
     }).when("/operations",{
         templateUrl:"../adOperations.html",
         controller:"adOperationsCtrl"
+    }).otherwise({
+        templateUrl:"../adminFront/home.html"
     })
     });

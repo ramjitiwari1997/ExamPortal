@@ -15,7 +15,11 @@ let obj=new maker.loginObj(id,password);
 crud.doLogin(req,res,obj);
 });
 
-
+router.post('*',function(req,res){
+    if(!req.session.adminid){
+        res.send({data:'session-expired'});
+    }
+})
 
 
 router.get('/dashboard',function(req,res){
@@ -36,8 +40,10 @@ res.send({data:'success'});
 
 router.post('/addTeacher',function(req,res){
        let form=req.body.form;
-       let obj= new maker.teacherObj(form.name,form.id,form.dept,form.psw);
+       let obj= new maker.teacherObj(form);
+       console.log("called");
        console.log(obj);
        crud.addTeacher(req,res,obj);
-})
+});
+
 module.exports=router;

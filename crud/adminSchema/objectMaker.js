@@ -3,12 +3,14 @@ loginObj:function(id,password){
     this.id=id;
     this.password=password;
 },
-teacherObj:function(name,id,dept,password){
-    //this.name=name;
-    this.id=id;
-   // this.dept=dept;
-    this.password=password;
-
+teacherObj:function(form){
+    this.name=form.name;
+    this.dept=form.dept;
+    this.id=form.id;
+    this.mail=form.mail;
+    this.mob=form.mob;
+    this.password=pwd;
+    this.Tests=[];
 }
 }
 module.exports=object;
