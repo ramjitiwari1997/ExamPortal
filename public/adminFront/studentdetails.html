@@ -1,0 +1,24 @@
+<table border="2px solid black">
+    <thead>
+        <td>Student Name</td>
+        <td>Student Roll No.</td>
+        <td>Student Department</td>
+        <td colspan="2">operations</td>
+    </thead>
+    <tbody>
+            <tr ng-repeat="student in studentdata">
+                    <td>{{student.name}}</td>
+                    <td>{{student.roll}}</td>
+                    <td>{{student.dept}}</td>
+    
+                    <td><button type="button" class="btn btn-default btn-sm" ng-click="edit(student.roll)">
+                        <span class="glyphicon glyphicon-edit" >
+                        </span> Modify Details
+                          </button></td>
+                    <td><button type="button" class="btn btn-default btn-sm" ng-click="delete(student.roll)">
+                        <span class="glyphicon glyphicon-trash"></span> Remove Student
+                          </button></td>
+                </tr>
+
+    </tbody>
+</table>

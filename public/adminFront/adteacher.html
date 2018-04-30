@@ -4,18 +4,17 @@
       <label for="">Teacher Name :</label>
       <input type="text" class="form-control" ng-model="form.name" placeholder="Enter Teacher Name">
     </div>
-    <div class="dropdown">
-            <label for="">Teacher Department :</label><br>
-                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Select Department
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Computer Science And Engineering</a></li>
-                      <li><a href="#">Electrical Engineering</a></li>
-                      <li><a href="#">Electronics And Communication Engineering</a></li>
-                      <li><a href="#">Mechanical Engineering</a></li>
-                      <li><a href="#">Civil Engineering</a></li>
-                    </ul>
-                  </div>
+
+      <div class="form-group">
+        <label for="sel1">Teacher Department:</label>
+        <select class="form-control" id="sel1" ng-model="form.dept">
+          <option >Civil Engineering</option>
+          <option>Computer Science And Engineering</option>
+          <option>Electrical Engineering</option>
+          <option>Electronics And Communication Engineering</option>
+          <option>Mechanical Engineering</option>
+        </select>
+        </div>
     <div class="form-group">
         <label for="">Teacher ID :</label>
         <input type="number" class="form-control" placeholder="Enter Teacher Id :" ng-model="form.id">

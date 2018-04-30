@@ -18,6 +18,12 @@ app.config(function($routeProvider,$locationProvider){
     }).when("/operations",{
         templateUrl:"../adOperations.html",
         controller:"adOperationsCtrl"
+    }).when('/teachers',{
+        templateUrl:'../adminFront/teacherdetail.html',
+        controller:'teacherDetailsCtrl'   
+    }).when('/students',{
+        templateUrl:'../adminFront/studentdetails.html',
+        controller:'studentDetailsCtrl'   
     }).otherwise({
         templateUrl:"../adminFront/home.html"
     })

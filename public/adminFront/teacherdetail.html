@@ -1,0 +1,25 @@
+
+<table border="2px solid black">
+        <thead>
+            <td>Teacher Name</td>
+            <td>Teacher Id</td>
+            <td>Teacher Department</td>
+            <td colspan="2">operations</td>
+        </thead>
+        <tbody>
+                <tr ng-repeat="teacher in teacherdata">
+                        <td>{{teacher.name}}</td>
+                        <td ng-model="que">{{teacher.id}}</td>
+                        <td ng-model="optn1">{{teacher.dept}}</td>
+        
+                        <td><button type="button" class="btn btn-default btn-sm" ng-click="edit(teacher.roll)">
+                            <span class="glyphicon glyphicon-edit" >
+                            </span> Modify Details
+                              </button></td>
+                        <td><button type="button" class="btn btn-default btn-sm" ng-click="delete(teacher.roll)">
+                            <span class="glyphicon glyphicon-trash"></span> Remove Teacher
+                              </button></td>
+                    </tr>
+    
+        </tbody>
+    </table>

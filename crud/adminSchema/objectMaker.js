@@ -9,8 +9,9 @@ teacherObj:function(form){
     this.id=form.id;
     this.mail=form.mail;
     this.mob=form.mob;
-    this.password=pwd;
+    this.password=form.pwd;
     this.Tests=[];
-}
+},
+
 }
 module.exports=object;
