@@ -23,7 +23,7 @@ router.post('/doRegistration',function(req,res){
 
 router.post('/doLogin',function(req,res){
 let form=req.body.form;
-let obj=new objectMaker.Login(form.id,form.password);
+let obj=new objectMaker.Login(form.mail,form.password);
 crud.doLogin(obj,req,res);
 });
 
@@ -33,15 +33,15 @@ crud.doLogin(obj,req,res);
 
 router.post('/saveTest',function(req,res){
     if(sessionChecker(req,res)){
+    let testid=Math.floor(Math.random()*10000);
     let obj=req.body.form;
     console.log("called");
     let testname=obj.testname;
     let houre=obj.houre;
     let minute=obj.minute;
     let isPublish="N";
-    let Questions=[];
     let teacherid=req.session.teacherid;
-    let prepareObject=new objectMaker.makeTest(testname,isPublish,houre,minute,Questions);
+    let prepareObject=new objectMaker.makeTest(teacherid,testname,testid,isPublish,houre,minute);
     let teacherObj=new objectMaker.makeTeacherid(teacherid);
     crud.addTest(teacherObj,prepareObject,req,res);
     }
@@ -68,10 +68,8 @@ router.post('/getTests',function(req,res){
 router.post('/deleteTest',function(req,res){
     if(sessionChecker(req,res)){
        let teacherid=req.session.teacherid;
-       let teacherObj=new objectMaker.makeTeacherid(teacherid);
-       let testname=req.body.form.testname;
-       let testnameObj=new objectMaker.makeTestname(testname);
-       crud.deleteTest(teacherObj,testnameObj,req,res);
+       let testid=req.body.form.testid;
+       crud.deleteTest({mail:teacherid,testid:testid},req,res);
     }
 });
 router.get('/dashboard',function(req,res){
@@ -88,36 +86,47 @@ router.get('/dashboard',function(req,res){
 router.post("/saveQuestion",function(req,res){
     if(sessionChecker(req,res)){
         let teacherid=req.session.teacherid;
-        let testname=req.body.form.testname;
-        let question=req.body.form.question;
-        let optn1=req.body.form.optn1;
-        let optn2=req.body.form.optn2; 
-        let optn3=req.body.form.optn3;
-        let optn4=req.body.form.optn4;
-        let ans=req.body.form.ans;
-        let positivemark=req.body.form.positivemark;
-        let negativemark=req.body.form.negativemark;
-        let teacherObj=new objectMaker.makeTeacherid(teacherid);
-        let testnameObj=new objectMaker.makeTestname(testname);
-       // var q=crud.FindQueno(teacherObj,testname);
-        //console.log(q);
-        let q=req.body.form.queno;
-        if(q==-1){
-            res.send({data:"error"})
-        }
-        else{
-        let QuestionObj=new objectMaker.makeQuestion(q,question,optn1,optn2,optn3,optn4,ans,positivemark,negativemark);   
-        crud.saveQuestion(teacherObj,testname,QuestionObj,req,res);
-        }
+        console.log(req.body.form.testid)
+        let testid=req.body.form.testid;
+        let teacherObj={mail:teacherid,testid:testid};
+        let QuestionObj=req.body.form.question; 
+        QuestionObj.queid=testid+""+Math.floor(Math.random()*10000)
+        crud.saveQuestion(teacherObj,QuestionObj,req,res);
     }
 });
 router.post('/getQuestions',function(req,res){
-    if(sessionChecker(req,res)){
+if(sessionChecker(req,res)){
  let teacherid=req.session.teacherid;
- let testname=req.body.form.testname;
- let teacherObj=new objectMaker.makeTeacherid(teacherid);
- let testnameObj=new objectMaker.makeTestname(testname);
- crud.sentQuestion(teacherid,testnameObj,req,res);
+ let testid=req.body.form.testid;
+ crud.sentQuestion({mail:teacherid,testid:testid},req,res);
     }
 });
+
+router.post('/forget',function(req,res){
+crud.forgetpwd(req.body.form.mail,req,res);
+});
+
+
+router.post('/checkotp',function(req,res){
+    console.log(req.body)
+    crud.checkotp(req.body,req,res);
+})
+router.post('/resetpwd',function(req,res){
+    if(req.session.teacherotpmail){
+         crud.resetpwd(req,res,req.body.form.mail,req.body.form.password);
+    }
+    else{
+        res.send({data:"session-expired"})
+    }
+});
+router.post('/publishtest',function(req,res){
+    if(sessionChecker(req,res)){
+        crud.dopublish(req,res);
+    }
+})
+router.post('/getResults',function(req,res){
+    if(sessionChecker(req,res)){
+        crud.getResults(req,res);
+    }
+})
 module.exports=router;

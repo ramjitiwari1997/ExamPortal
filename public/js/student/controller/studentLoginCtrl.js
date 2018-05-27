@@ -1,14 +1,11 @@
 app.controller("studentLoginCtrl",function($scope,studentFac){
 
     $scope.doLogin=function(){
-        let id=$scope.form.uname;
-        let password=$scope.form.psw;
-        console.log(password);
-        let promise=studentFac.checkLogin(id,password);
+        let promise=studentFac.do('/student/doLogin',$scope.form);
         promise.then(success,fail);  
         function success(data){
-            if(data.status==200){
-               window.location='/welcome';
+            if(data.data.data==="success"){
+               window.location='/student/dashboard';
             }
             else{
                 $scope.pwserro="invalid userid or password";

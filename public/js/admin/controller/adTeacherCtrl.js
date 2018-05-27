@@ -6,7 +6,20 @@ app.controller('adTeacherCtrl',function($scope,adminFact){
        let promise=adminFact.do('../admin/addteacher',form);
        promise.then(success,fail);
       function success(data){
-           console.log(data);  
+           if(data.data.data=='success')
+           alert('added successully....')
+           else if(data.data.data==='exists')
+               alert('opps mail already exits');
+         
+           else if(data.data.data=='session-expired')
+           {
+               alert('oops session expired')
+               location.reload();
+           }
+           else{
+               alert('server error')
+               location.reload();
+           }
        }
        function fail(data){
            console.log(data);

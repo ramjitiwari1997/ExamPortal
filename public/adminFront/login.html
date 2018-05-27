@@ -5,6 +5,9 @@
             margin-right: 20px;
             float: right;
         }
+        .container{
+          margin-top: 7%;
+        }
     </style>
     
     <div class="container">
@@ -16,7 +19,9 @@
           <div class="form-group">
             <label for="pwd">Admin Password:</label>
             <input type="password" class="form-control" ng-model="form.psw" placeholder="Enter password" required><span>{{pwserro}}</span>
+          <span ng-show="error" style="color:red">invalid username or password</span>
           </div>
+
           <div class="checkbox">
             <label><input type="checkbox" name="remember"> Remember me</label>
           </div>

@@ -5,13 +5,16 @@
         margin-right: 20px;
         float: right;
     }
+    .container{
+      margin-top: 7%;
+    }
 </style>
 
 <div class="container">
     <form ng-submit="doLogin()">
       <div class="form-group">
-        <label for="">Teacher User Name:</label>
-        <input type="text" class="form-control"ng-model="form.id" placeholder="Enter User Name" required>
+        <label for="">Teacher Email:</label>
+        <input type="text" class="form-control"ng-model="form.mail" placeholder="Enter Your Email" required>
       </div>
       <div class="form-group">
         <label for="pwd">Teacher Password:</label>
@@ -21,7 +24,148 @@
         <label><input type="checkbox" name="remember"> Remember me</label>
       </div>
       <button type="submit" class="btn btn-default">Login</button>
-      <span>Forgot <a href="#">password?</a></span>
+      <span>Forgot <a  data-toggle="modal" data-target="#myModal" style="cursor: pointer">password</a></span>
+
+          
     </form>
-  </div>
+
+    <div class="container" >
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div id="entermail">
+              <form ng-submit="forget()">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Forget Password</h4>
+              </div>
+              <div class="modal-body">
+                <div></div>
+                <table>
+                  <tr>
+                    <p>One Time Password will be send to this email</p>
+                  </tr>
+                  <tr>
+                    <td>Enter Email:</td>
+                    <td><input type="email" ng-model="mailForget" required></td>
+                  </tr>
+                  <span id='wrongmail'></span>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default"  data-dismiss="modal" style="float: left;">Close</button>
+                <button type="submit" class="btn btn-default"  style="float:right;" id="nextbtn">Next</button>
+              </div>
+            </div>
+            </form>
+          </div>
+
+
+
+
+<div id="otp">
+<form >
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Forget Password</h4>
+        </div>
+        <div class="modal-body">
+          <div></div>
+          <table>
+            <tr>
+              <p>We have Sent an one time password on your register email id</p>
+            </tr>
+            <tr>
+              <td>Email:{{email}}</td>
+            </tr>
+            <tr>
+              <td>Enter OTP:</td>
+              <td><input type="mail" ng-model="otp" required></td>
+            </tr>
+            <span id='wrongotp'></span>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"  data-dismiss="modal" style="float: left;">Close</button>
+          <button type="submit" class="btn btn-default" style="float:right;" 
+          ng-click="checkotp()" id="submitbtn">submit</button>
+        </div>
+      </div>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+    <div id="resetpwd">
+      <form >
+          <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Forget Password</h4>
+              </div>
+              <div class="modal-body">
+                <div></div>
+                <table>
+                  <tr>
+                    <p>Enter Your New Password</p>
+                  </tr>
+                  <tr>
+                    <td>Email:{{email}}</td>
+                  </tr>
+                  <tr>
+                    <td>Enter New Password:</td>
+                    <td><input type="password" ng-model="newpwd" required></td>
+                  </tr>
+                  <tr>
+                    <td>Cinfirm New Password:</td>
+                    <td><input type="password" ng-model="newpwd2" required></td>
+                  </tr>
+                  <span id='matchpwd'></span>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default"  data-dismiss="modal" style="float: left;">Close</button>
+                <button type="submit" class="btn btn-default" style="float:right;" 
+                ng-click="resetpwd()" id="submitpwdbtn">submit</button>
+              </div>
+            </div>
+            </form>
+          </div>
+          <div id="updatemessage">
+            <form >
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Forget Password</h4>
+                    </div>
+                    <div class="modal-body">
+                      {{updatemsg}}
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                  </form>
+                </div>
+      
+
+</div>
+
+
+
+
+
+
+          </div>
+        </div>
+        
+      </div>
+</div>
   

@@ -1,115 +1,12 @@
-body{
-	background:#fff url(../images/background.gif) repeat-x center 187px;
-	color:#585858;
-	font-family:Arial;
-	font-size:14px;
-	margin:0;
-	min-width:960px;
-}
-a{
-	outline:none;
-}
-img{
-	border:none;
-}
-#header div#section:after, #header ul:after, #content div:after, #content div ul.services:after, #footer div:after, #footer div div.section ul:after{
-	clear:both;
-	content:" ";
-	display:block;
-	font-size:0;
-	height:0;
-	visibility:hidden;
-}
-#page{
-	width:100%;
-}
-#header{
-	background:url(../images/bg-header.gif) repeat-x;
-	height:auto;
-	top: 0;
-	overflow:hidden;
-	position:relative;
-}
-#header div#section{
-	height:125px;
-	margin:0;
-	width:auto;
-    display: flex;
-}
-#header div#section div{
-	float:left;
-    margin-left: 30px;
-    }
-#header div#section div img{
- border-radius: 50%;   
-}
-#header div#section div.right{
- margin-top: 40px;   
-}
-#header div#section div a{
-	display:block;
-    float: left;
-    font-size: 45px;
-    text-shadow: 5px 5px red;
-    color: white;
-    text-decoration: none;
-}
-#header div#section span{
-	color:#ACBCC9;
-	float:right;
-	margin:0;
-	padding-right:20px;
-	padding-top:45px;
-	text-align:right;
-	width:178px;
-}
-#header ul{
-	list-style:none;
-	margin:2px auto 0;
-	padding:0;
-	width:935px;
-}
-#header ul li{
-	float:left;
-    margin-top: 20px;
-	padding-right:5px;
-}
-#header ul li a{
-	color:#28475C;
-	display:block;
-	font-size:14px;
-	height:40px;
-	line-height:37px;
-	padding:0 23px;
-	text-align:center;
-	text-decoration:none;
-	text-shadow:1px 1px 0 #94C81D;
-	text-transform:capitalize;
-}
-#header ul li.current, #header ul li:hover{
-	height:43px;
-}
-#header ul li.current a{
-	background:url(../images/bg-menu.gif) repeat-x;
-	color:#2a495e;
-	font-weight:bold;
-	text-shadow:1px 1px 0 #a8d32c;
-}
-#header ul li a:hover{
-	background:url(../images/bg-menu.gif) repeat-x;
-}
-#header div#tagline{
-	background:url(../images/bg-header2.jpg) no-repeat center -20px;
-	margin-top:5px;
-}
-#header div#tagline div{
+
+.body-content div#tagline div{
 	color:#295071;
 	height:385px;
 	padding-left:20px;
 	margin:0 auto;
 	width:940px;
 }
-#header div#tagline div h4{
+.body-content div#tagline div h3{
 	font-family:Georgia, "Times New Roman", Times, serif;
 	font-size:50px;
 	font-weight:bold;
@@ -119,7 +16,7 @@ img{
 	text-shadow:0 3px 0 red;
 	width:450px;
 }
-#header div#tagline div p{
+.body-content div#tagline div p{
 	font-size:24px;
 	line-height:35px;
 	margin:0;
@@ -127,36 +24,112 @@ img{
 	text-shadow:0 1px 1px #FFFFFF;
 	width:340px;
 }
-
-#footer{
+html {
+	height: 100%;
+  }
+  html body {
+	height: 100%;
+	overflow: hidden;
+  }
+  html body .container-fluid.body-content {
+	position: absolute;
+	top:203px;
+	bottom: 60px;
+	right: 0;
+	left: 0;
+	overflow-y: auto;
+  }
+  header {
+	  position: absolute;
+	  left: 0;
+	  right: 0;
+	  top: 0;
+	  background-color: #4C4;
+	  height: 100px;
+  }
+  
+  
+  
+  
+  #header{
+	  width:100%;
+	  display: flex;
+	  background-color: #274f75;   
+  }
+  
+  #header img{
+	  margin-left: 10px;
+	  width: 150px;
+	  height: 150px;
+	  border-radius: 50%;
+  }
+  #header h1{
+	  color: white;
+	  margin-left: 50px;
+	  text-shadow: 5px 5px red;
+	  font-size: 45px;
+	  margin-top: 45px;
+  }
+  .greeen{
+  background-color: #82BB0E !important;
+  }
+  .nav-background :hover , open{
+	  background-color: white !important;
+  }
+  .txtcolor{
+	  color: black !important;
+	  font-weight: bold !important;
+  }
+  nav li{
+	  font-size: 15px;
+  }
+  .pl-50{
+	  padding-left: 50px;
+  }
+  .pt-15{
+	  padding-top: 15px;
+	  font-size: 20px;
+	  font-weight: bold;
+  }
+  .mr-none{
+	  margin-right: 0 !important;
+  }
+  
+  
+  /* FOOTER CSS*/
+  footer {
 	background:#274F75 url(../images/bg-footer.gif) repeat-x;
-	min-height:82px;
-	position: fixed;
-	bottom: 0;
-	width:100%;
-}
-#footer div{
+	  position: absolute;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  height: 60px;
+  }
+  
+  
+  
+footer div{
 	font-size:12px;
 	margin:0 auto;
 	padding-top:20px;
 	position:relative;
 	width:960px;
 }
-#footer div div#connect{
+footer div div#connect{
 	float:left;
 	padding:0;
 	width:250px;
 }
-#footer div div#connect a{
+footer div div#connect a{
 	display:inline-block;
 	padding-right:10px;
 }
-#footer div div.section{
+footer div div.section{
 	float:right;
 	padding:0;
 	width:700px;
 }
-#footer div div.section ul{
+footer div div.section ul{
 	list-style:none;
 	margin:0;
 	padding:0;
@@ -164,30 +137,30 @@ img{
 	right:0;
 	top:0;
 }
-#footer div div.section ul li{
+footer div div.section ul li{
 	border-left:1px solid #6886a0;
 	float:left;
 	padding:0 5px;
 }
-#footer div div.section ul li.last{
+footer div div.section ul li.last{
 	border-right:0;
 }
-#footer div div.section ul li:first-child{
+footer div div.section ul li:first-child{
 	border:none;
 }
-#footer a{
+footer a{
 	color:white;
 	text-decoration:none;
 }
-#footer div div.section ul li a{
+footer div div.section ul li a{
 	display:block;
 	height:12px;
 	line-height:10px;
 }
-#footer a:hover{
+footer a:hover{
 	color:chartreuse;
 }
-#footer div div.section p{
+footer div div.section p{
 	color:white;
 	margin:0;
 	padding:20px 3px 0;

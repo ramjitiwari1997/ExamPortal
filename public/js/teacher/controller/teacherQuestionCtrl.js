@@ -1,5 +1,6 @@
 app.controller('teacherQuestionCtrl',function($scope,teacherFact){
    $scope.questiondiv=false;
+    var testid;
     var testnme;
     var queno=-1;
    let promise=teacherFact.do('../teacher/getTests',{});
@@ -18,36 +19,47 @@ app.controller('teacherQuestionCtrl',function($scope,teacherFact){
    function fail(err){
        alert("oops something went wrong");
    }
-   $scope.saveQuestion=function(testname){
+   $scope.saveQuestion=function(){
+       console.log(testid)
        let form=$scope.form;
-       form.queno=queno;
-       let obj=new objectMaker(form.queno,form.question,form.optn1,form.optn2,form.optn3,form.optn4,form.ans,form.positivemark
-    ,form.negativemark,testnme);
-       let promise=teacherFact.do('../teacher/saveQuestion',obj);
+      // form.queno=queno;
+       //form.testid=testid;
+       let obj=new objectMaker(form,testid);
+       let promise=teacherFact.do('../teacher/saveQuestion',{question:form,testid:testid});
        promise.then(success,fail);
        function success(data){
            console.log(data);
-           printQue(testnme);
-           //$scope.form="";
+           if(data.data.data=='success')
+           {
+               $scope.form=""
+            alert("question Saved Successfully..!")
+           printQue(testid,$scope.testname);
+           }
+           else if(data.data.data=='session-expired'){
+             alert('opps session expired login aganin')
+           }
+           else{
+               alert('Internal Server Error Please try angain..!')
+           }
        }
        function fail(err){
            alert("oops somethig went wrong");
        }
    }
-   $scope.printQuestions=function(testname1){
-    printQue(testname1);   
+   $scope.printQuestions=function(testname,testid1){
+    testid=testid1;
+    printQue(testid,testname);   
    }
-   function printQue(testname1){
+   function printQue(testid,testname){
     $scope.questiondiv=true;
     $scope.chooseTest="";
-    testnme=testname1;
-    $scope.testname=testnme;
-    let promise=teacherFact.do("../teacher/getQuestions",{testname:testname1});
+    $scope.testname=testname;
+    let promise=teacherFact.do("../teacher/getQuestions",{testid:testid});
     promise.then(success,fail);
         function success(data){
-         console.log(data.data.data);
-         $scope.questiondata=data.data.data.Questions;
-         queno=data.data.data.Questions.length+1;
+         console.log(data);
+         $scope.questiondata=data.data.data;
+         queno=data.data.data.length+1;
         }
         function fail(err){
             alert("oops cant get data.");
@@ -62,7 +74,7 @@ app.controller('teacherQuestionCtrl',function($scope,teacherFact){
    }
     });
 
-    function objectMaker(queno,question,optn1,optn2,optn3,optn4,ans,positivemark,negativemark,testname){
+    function objectMaker(queno,question,optn1,optn2,optn3,optn4,ans,positivemark,negativemark,testid){
         this.queno=queno;
         this.question=question;
         this.optn1=optn1;
@@ -72,5 +84,5 @@ app.controller('teacherQuestionCtrl',function($scope,teacherFact){
         this.ans=ans;
         this.positivemark=positivemark;
         this.negativemark=negativemark;
-        this.testname=testname;
+        this.testid=testid;
     }

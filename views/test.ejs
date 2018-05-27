@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tests</title>
+    <script  src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script  src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script  src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script  src='../js/app.js' type='text/javascript'></script>
+    <script src="../js/student/controller/testCtrl.js"></script>
+    <script src="../js/student/controller/prmisnCtrl.js"></script>
+    <script src="../js/student/controller/resultCtrl.js"></script>
+    <script src="../js/student/routes/testroute.js"></script>
+</head>
+<body ng-app="myapp">
+    <div class="container">
+            <div class="panel panel-primary">
+                    <div class="panel-heading">
+                            welcome <%=mail%>
+                        </div>
+                  </div>
+                  <span style="color:red">
+Do Not Press Esc button.If You do,youre test will be finished immediately. 
+                  </span>
+        <ng-view></ng-view>
+        </div>
+</body>
+</html>

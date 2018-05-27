@@ -1,0 +1,28 @@
+<div class="col-sm-2" style="overflow-y:hidden;border-right: 2px solid gray">
+<div style="text-align: center;margin-bottom: 12px;font-size: 150%;">Tests</div>
+<ul ng-repeat="test in tests" style="list-style-type: none">
+    <li style="padding: 5px;border: 1px solid gray;border-radius: 5px;text-align: center;cursor: pointer;"
+     ng-click="printresult(test.testid)">
+        {{test.testname}}</li>
+</ul>
+</div>
+<div class="col-sm-10">
+<table class="table table-bordered">
+    <thead>
+        <th>No.</th>
+        <th>Student Id</th>
+        <th>Positive Mark</th>
+        <th>Negative Mark</th>
+        <th>Total Mark</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="result in results">
+            <td>{{$index+1}}</td>
+            <td>{{result.studentid}}</td>
+            <td>{{result.pmark}}</td>
+            <td>{{result.nmark}}</td>
+            <td>{{result.tmark}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

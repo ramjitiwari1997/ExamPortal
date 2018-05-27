@@ -1,6 +1,66 @@
+<style>
+.container{
+    margin-top: 20px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center;
+    border-radius: 5px;
 
-<div>
-    <table border="1">
+    
+}
+
+.form-contain{
+    height: 80px;
+    border: 1px solid black;
+}
+
+.form-margin{
+    margin-left: 50px;
+}
+
+/*....table CSS ....*/
+    table, td{
+        border: 1px solid black;
+    }
+    table{
+    border-collapse: collapse;
+    
+    }
+    td{
+      height: 35px;
+      text-align: center;
+      font-size: 100%;
+      font-weight: bold;
+    }
+    thead{
+        background-color:#9bf766;
+    }
+    thead td{
+        font-size: 110%;
+        font-weight: bold;
+    }
+    tr:hover {
+        background-color: rgb(231, 221, 221);
+        }
+        .button{
+            font-size: 100% !important;
+            font-weight: bold;
+            line-height: 5px !important;
+            background-color: white !important;
+        }
+        .button-publish:hover{
+            background-color: #a4f0b7 !important;
+        }
+        .button-edit:hover{
+            background-color: #c1a4f0 !important;
+        }
+        .button-trash:hover{
+            background-color: #f0a4a4 !important;
+        }
+</style>
+
+<!--<div>
+    <table>
             <tr><th> Name:</th>
                 <td><input type="text" placeholder="Enter Test Name" ng-model="testname"></td>
             </tr>
@@ -10,16 +70,39 @@
             </tr>
         
     </table>
-    <button type="reset">Reset</button>
+    <button type="reset" >Reset</button>
     <button type="button" ng-click="saveTest()">SAVE</button>
-</div>
+</div>    -->
+<div class="form-contain container">
 <div class="container">
-    <legend>Tests</legend>
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="">Test Name :</label>
+        <input type="text" class="form-control" placeholder="Enter Test Name" ng-model="testname">
+      </div>
+      <div class="form-group">
+        <label for="" class="form-margin">Test Time:</label>
+        <input type="text" class="form-control" ng-model="houre" placeholder="Enter Hours"></td>
+        <input type="text" class="form-control" placeholder="Enter Minute" ng-model="minute">
+      </div>
+      <button type="submit" class="btn btn-default form-margin" ng-click="saveTest()">Save Test</button>
+      <button type="reset" class="btn btn-default form-margin">Reset</button>
+    </form>
+  </div>
+  </div>
+  
+
+
+
+
+<div class="container">
+    <legend>Test Details</legend>
     <fieldset>
-        <table border="1" class="table table-hover">
+        <table class="table table-hover">
             <thead>
                 <td>Test Name</td>
                 <td colspan="2">TestDuration</td>
+                <td>Passkey</td>
                 <td>isPublish</td>
                 <td colspan="3" style="text-align: center">operations</td>
 
@@ -29,15 +112,16 @@
                 <td>{{test.testname}}</td>
                 <td>{{test.houre}}</td>
                 <td>{{test.minute}}</td>
+                <td>{{test.testid}}</td>
                 <td>{{test.isPublish}}</td>
-                <td><button type="button" class="btn btn-default btn-sm" ng-click="edit(test.testname)">
+                <td><button type="button" class="btn btn-default btn-sm button-edit" ng-click="edit(test.testid)">
                     <span class="glyphicon glyphicon-edit" >
                     </span> Edit
                       </button></td>
-                <td><button type="button" class="btn btn-default btn-sm" ng-click="delete(test.testname)">
+                <td><button type="button" class="btn btn-default btn-sm button-trash" ng-click="delete(test.testid)">
                     <span class="glyphicon glyphicon-trash"></span> Trash 
                       </button></td>
-                <td><button type="button" class="btn btn-default btn-sm" ng-click="publish(test.testname)">
+                <td><button type="button" class="btn btn-default btn-sm button-publish" ng-click="publish(test.testid)">
                         <span class="glyphicon glyphicon-thumbs-up"></span>Publish
                       </button></td>
             </tr>

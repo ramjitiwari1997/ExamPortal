@@ -24,6 +24,12 @@ app.config(function($routeProvider,$locationProvider){
     }).when('/students',{
         templateUrl:'../adminFront/studentdetails.html',
         controller:'studentDetailsCtrl'   
+    }).when('/credentials',{
+        templateUrl:'../adminFront/cred.html',
+        controller:'credCtrl'   
+    }).when('/logout',{
+        templateUrl:'../adminFront/logout.html',
+        controller:'logoutCtrl'
     }).otherwise({
         templateUrl:"../adminFront/home.html"
     })

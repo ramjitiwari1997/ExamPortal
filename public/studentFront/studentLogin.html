@@ -5,17 +5,20 @@
         margin-right: 20px;
         float: right;
     }
+    .container{
+      margin-top: 7%;
+    }
 </style>
 
 <div class="container">
     <form ng-submit="doLogin()">
       <div class="form-group">
         <label for="">Student User Name:</label>
-        <input type="text" class="form-control"ng-model="form.uname" placeholder="Enter User Name" required>
+        <input type="text" class="form-control"ng-model="form.mail" placeholder="Enter User Name" required>
       </div>
       <div class="form-group">
         <label for="pwd">Student Password:</label>
-        <input type="password" class="form-control" ng-model="form.psw" placeholder="Enter password" required><span>{{pwserro}}</span>
+        <input type="password" class="form-control" ng-model="form.password" placeholder="Enter password" required><span>{{pwserro}}</span>
       </div>
       <div class="checkbox">
         <label><input type="checkbox" name="remember"> Remember me</label>

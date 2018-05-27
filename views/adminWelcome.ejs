@@ -19,61 +19,25 @@
     <script src="../js/admin/controller/adOperationsCtrl.js"></script>
     <script src="../js/admin/controller/studentDetailsCtrl.js"></script>
     <script src="../js/admin/controller/teacherDetailsCtrl.js"></script>
+    <script src="../js/admin/controller/logout.js"></script>
+    <script src="../js/admin/controller/credCtrl.js"></script>
     <script src="../js/admin/routes/route.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+    .dropdown{
+      cursor: pointer;
+    }
+    </style>
 </head>
-<style>
-#header{
-	width:100%;
-    display: flex;
-    background-color: #274f75;   
-}
-
-#header img{
-    margin-left: 10px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-#header h1{
-    color: white;
-    margin-left: 50px;
-    text-shadow: 5px 5px red;
-    font-size: 45px;
-    margin-top: 45px;
-}
-.greeen{
-background-color: #82BB0E !important;
-}
-.nav-background :hover , open{
-    background-color: white !important;
-}
-.txtcolor{
-    color: black !important;
-    font-weight: bold !important;
-}
-nav li{
-    font-size: 15px;
-}
-.pl-50{
-    padding-left: 50px;
-}
-.pt-15{
-    padding-top: 15px;
-    font-size: 20px;
-    font-weight: bold;
-}
-.mr-none{
-    margin-right: 0 !important;
-}
-
-</style>
 <body ng-app="myapp">
-<div id="header">
+<header>
+    <div id="header">
         
         <img src="../images/rkgitlogo.jpg" alt="">
          <h1>RAJ KUMAR GOEL INSTITUTE OF TECHNOLOGY</h1>
         
 </div>
+
 <div class="row mr-none">
   <nav class="navbar navbar-inverse greeen">
         <div class="container-fluid col-lg-10 pl-50">
@@ -82,29 +46,47 @@ nav li{
           </div>
           <ul class="nav navbar-nav nav-background">
             <li class="act "><a href="#" class="txtcolor">Home</a></li>
-            <li class="dropdown"><a class="dropdown-toggle txtcolor" data-toggle="dropdown" href="#">Student <span class="caret"></span></a>
+            <li class="dropdown"><a class="dropdown-toggle txtcolor" data-toggle="dropdown">Student <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a ng-href="#addstd">Add Student</a></li>
                 <li><a ng-href="#students">Modify Student</a></li>
               </ul>
             </li>
-            <li class="dropdown"><a class="dropdown-toggle txtcolor" data-toggle="dropdown" href="#">Teacher <span class="caret"></span></a>
+            <li class="dropdown"><a class="dropdown-toggle txtcolor" data-toggle="dropdown">Teacher <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a ng-href="#addteacher">Add Teacher</a></li>
                   <li><a ng-href="#teachers">Modify Teacher</a></li>
                 </ul>
               </li>
+              <li class="dropdown"><a class="txtcolor"  ng-href="#credentials">Change Credentials</span></a>
+              </li>
           </ul>
+          <span style="float: right;padding-top: 10px;cursor: pointer;"> <a ng-href="#logout">Logout</a></span>
+
         </div>
         <div class="col-lg-2 pt-15 pl-50">Welcome <%=adminName%></div>
     </nav>
 </div>
-   
-        
-  <div>
-     <ng-view>
+</header>
 
-     </ng-view>
-    </div>
+<div class="container-fluid body-content">
+ <ng-view>
+ </ng-view>
+</div>
+<footer>
+                <div>
+                  <div id="connect"> <a href="#"><img src="../images/icon-facebook.gif" alt="" /></a> <a href="#"><img src="../images/icon-twitter.gif" alt="" /></a> <a href="#"><img src="../images/icon-youtube.gif" alt="" /></a> </div>
+                  <div class="section">
+                    <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="about.html">About Us</a></li>
+                      <li class="last"><a href="contact-us.html">Contact us</a></li>
+                    </ul>
+                      <p>Copyright &copy; <a href="http://www.rkgit.edu.in/" target="_blank">www.rkgit.edu.in</a> - All Rights Reserved</p>
+                  </div>
+                </div>
+            
+</footer>
+   
 </body>
 </html>

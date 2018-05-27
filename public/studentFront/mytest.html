@@ -1,0 +1,20 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Test Name</th>
+            <th>Test Id</th>
+            <th>Positive Mark</th>
+            <th>Negative Mark</th>
+            <th>Total Mark</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="data in tests">
+            <td>{{data.testname}}</td>
+            <td>{{data.testid}}</td>
+            <td>{{data.pmark}}</td>
+            <td>{{data.nmark}}</td>
+            <td>{{data.tmark}}</td>
+        </tr>
+    </tbody>
+</table>

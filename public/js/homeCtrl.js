@@ -4,10 +4,12 @@ app.controller("homeCtrl",function($rootScope){
 });
 app.config(function($routeProvider,$locationProvider){
     $locationProvider.hashPrefix('');
-    
         $routeProvider.when('/',{
             templateUrl:"home.html",
-        }).when('/about',{
+        }).when('/studentLogin',{
+            templateUrl:"studentFront/studentLogin.html",
+            controller:"studentLoginCtrl"
+            }).when('/about',{
             templateUrl:"about.html",
         }).otherwise({template:"Error Page, No match Found",redirectTo:"/"});
         

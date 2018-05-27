@@ -1,0 +1,38 @@
+
+  <div class="modal-body row" id="main">
+  <div class="col-md-9" id="left">
+  <span id="welcome">Time Remaining  {{time}}</span>
+  <span style="float:right;" class="btn btn-primary" ng-click="submitTest()">Submit Test</span>
+  <table>
+      <tr>
+          <th><strong>{{qno}}.</strong>{{que}}</th>
+      </tr>
+      <form>
+      <tr>
+          <td><input type="radio"  name="option" ng-click="tickMark('A')" id="optn1">(A). {{optn1}}<br></td>
+          <td><input type="radio"  name="option" ng-click="tickMark('B')" id="optn2">(B). {{optn2}}</td>        
+      </tr>
+        
+          <tr>
+          <td><input type="radio"  name="option" ng-click="tickMark('C')" id="optn3">(C). {{optn3}}</td>
+          <td><input type="radio"  name="option" ng-click="tickMark('D')" id="optn4">(D). {{optn4}}</td>        
+      </tr>
+      </form>
+  </table>
+  <div style="padding-top: 5%">
+    <span style="color:blue">Positive  Mark :{{pmark}}</span><br>
+    <span style="color: red">Negative Mark :{{nmark}}</span>
+    <span class="btn btn-default" style="float:right" ng-click="reset()">Reset Option</span>
+  </div>
+
+  <ul class="pager" style="padding-top: 10%;">
+        <li class="previous"><a ng-click="previous()" ng-show="prebtn">Previous</a></li>
+        <li class="next"><a ng-click="next()" ng-show="nxtbtn">Next</a></li>
+        <li class="next"><a ng-click="submitTest()" ng-show="subbtn">Submit Test</a></li>
+      </ul>
+  </div>
+  <div class="col-md-3" id="right">
+   
+<button id=link ng-repeat="data in qno1" ng-click="random(data)">{{data}}</button> 
+  </div>
+</div>  

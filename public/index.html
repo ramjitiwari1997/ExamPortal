@@ -21,57 +21,58 @@
   <script src="js/teacher/controller/teacherRegCtrl.js"></script>
   <script src="js/teacher/controller/teacherLoginCtrl.js"></script>
   <script src="js/teacher/routes/route.js"></script>
-  <script src="js/student/routes/route.js"></script>
   <script src="js/admin/routes/route.js"></script>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/modal.css">
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  
-<!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" /><![endif]-->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body ng-app="myapp" ng-controller="homeCtrl">
-
-
-
-  <div id="page">
+<header>
     <div id="header">
-      <div id="section">
-      <div><img src="images/rkgitlogo.jpg" width="150px" height="150px" alt=""></div>
-        <div class="right"><a href="index.html">RAJ KUMAR GOEL INSTITUTE OF TECHNOLOGY</a></div>
-       <!-- <span>rkgit.edu.in <br />
-        <br />
-        + 7958 917 9747 2481 000</span> --></div>
-      <ul>
-        <li class="current"><a href="index.html">Home</a></li>
-        <li><a ng-href="#studentLogin">Student</a></li>
-        <li><a ng-href="#teacherLogin">Faculty</a></li>
-        <li><a ng-href="#adminLogin">Admin</a></li>    
-        <li><a ng-href="#about">About Us</a></li>
-      </ul>
-  </div>
-  
-  <div style="padding-top: 60px;">
-<ng-view> 
-</ng-view>
+        
+        <img src="../images/rkgitlogo.jpg" alt="">
+         <h1>RAJ KUMAR GOEL INSTITUTE OF TECHNOLOGY</h1>
+        
 </div>
 
-
-
-<div id="footer">
-  <div>
-    <div id="connect"> <a href="#"><img src="images/icon-facebook.gif" alt="" /></a> <a href="#"><img src="images/icon-twitter.gif" alt="" /></a> <a href="#"><img src="images/icon-youtube.gif" alt="" /></a> </div>
-    <div class="section">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li class="last"><a href="contact-us.html">Contact us</a></li>
-      </ul>
-        <p>Copyright &copy; <a href="http://www.rkgit.edu.in/" target="_blank">www.rkgit.edu.in</a> - All Rights Reserved</p>
-    </div>
-  </div>
+<div class="row mr-none">
+  <nav class="navbar navbar-inverse greeen">
+        <div class="container-fluid col-lg-10 pl-50">
+          <div class="navbar-header  ">
+            <a class="active navbar-brand txtcolor" href="#">ONLINE edu-BASE SYSTEM</a>
+          </div>
+          <ul class="nav navbar-nav nav-background">
+            <li class="act "><a href="index.html" class="txtcolor">Home</a></li>
+            <li><a class="txtcolor" ng-href="#studentLogin">Student</a></li>
+            <li><a class="txtcolor" ng-href="#teacherLogin">Teacher</a></li>
+            <li><a class="txtcolor" ng-href="#adminLogin">Admin</a></li>
+            <li><a class="txtcolor" ng-href="#about">About Us</a></li>
+          </ul>
+        </div>
+    </nav>
 </div>
+</header>
+
+<div class="container-fluid body-content">
+ <ng-view>
+ </ng-view>
 </div>
+<footer>
+      
+                <div>
+                  <div id="connect"> <a href="#"><img src="../images/icon-facebook.gif" alt="" /></a> <a href="#"><img src="../images/icon-twitter.gif" alt="" /></a> <a href="#"><img src="../images/icon-youtube.gif" alt="" /></a> </div>
+                  <div class="section">
+                    <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="about.html">About Us</a></li>
+                      <li class="last"><a href="contact-us.html">Contact us</a></li>
+                    </ul>
+                      <p>Copyright &copy; <a href="http://www.rkgit.edu.in/" target="_blank">www.rkgit.edu.in</a> - All Rights Reserved</p>
+                  </div>
+                </div>
+              
+</footer>
 </body>
 </html>

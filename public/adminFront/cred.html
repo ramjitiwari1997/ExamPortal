@@ -1,0 +1,22 @@
+<div style="
+margin: 8%;
+width: 30%;
+">
+    <form ng-click="reset">
+    <table>
+        <tr>
+            <td><label for="">New Name</label></td>
+            <td><input type="text" ng-model="form.name" placeholder="Type Name" required></td>
+        </tr>
+        <tr>
+            <td><label for="">New Username:</label></td>
+            <td><input type="text" name="" id="" ng-model="form.id" placeholder="Type Username" required></td>
+        </tr>
+        <tr>
+            <td><label for="">New Password</label></td>
+            <td><input type="password" placeholder="Type password" ng-model="form.password" required></td>
+        </tr>
+    </table>
+    <button type="submit" style="float:right;" ng-click="reset()">Change</button>
+</form>
+</div>

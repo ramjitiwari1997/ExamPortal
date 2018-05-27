@@ -5,19 +5,20 @@ Reg:function(id,name,password,Tests){
     this.password=password;
     this.Tests=Tests;
 },
-Login:function(id,password){
-    this.id=id;
+Login:function(mail,password){
+    this.mail=mail;
     this.password=password;
 },
-makeTest:function(testname,isPublish,houre,minute,Questions){
-this.testname=testname
+makeTest:function(mail,testname,testid,isPublish,houre,minute){
+this.mail=mail;
+this.testname=testname;
+this.testid=testid;
 this.isPublish=isPublish;
 this.houre=houre;
 this.minute=minute;
-this.Questions=Questions;
 },
 makeTeacherid:function(id){
-    this.id=id;
+    this.mail=id;
 },
 makeTestname:function(testname){
     this.testname=testname;

@@ -37,8 +37,6 @@ router.post("/addstd",function(req,res){
     if(sessionChecker(req,res)){
        let form=req.body.form;
        let obj= new maker.teacherObj(form);
-       console.log("called");
-       console.log(obj);
        crud.addStudent(req,res,form);
     }
 });
@@ -47,9 +45,7 @@ router.post("/addstd",function(req,res){
 router.post('/addTeacher',function(req,res){
       if(sessionChecker(req,res)){
        let form=req.body.form;
-       let obj= new maker.teacherObj(form);
-       console.log("called");
-       console.log(obj);
+       let obj=new maker.teacherObj(form);
        crud.addTeacher(req,res,obj);
       }
 });
@@ -65,6 +61,14 @@ router.post('/getTeachers',function(req,res){
 router.post('/getStudents',function(req,res){
     if(sessionChecker(req,res)){
         crud.getStudents(req,res);
+    }
+});
+router.post('/reset',function(req,res){
+    if(sessionChecker(req,res)){
+        crud.reset(req,res);
+        req.session.destroy(function(){
+
+        })
     }
 })
 

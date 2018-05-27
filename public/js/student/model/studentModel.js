@@ -1,8 +1,8 @@
 app.factory("studentFac",function($http,$q){
 var object={
-    checkLogin:function(id,password){
+    do:function(path,form){
         let pr=$q.defer();
-        $http.post("student/doLogin",{id:id,password:password}).then(success,fail);
+        $http.post(path,{form:form}).then(success,fail);
         function success(data){
         pr.resolve(data);
         }

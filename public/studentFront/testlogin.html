@@ -1,0 +1,25 @@
+<div style="
+margin: 4%;
+padding: 10%;
+margin-left: 11%;
+width:70%;
+height: 15%;
+border: 1px solid gray;
+
+
+">
+<form ng-submit="checktest()">
+ <table>
+     <tr>
+         <td><label for="">Passkey:</label></td>
+         <td><input type="text" required placeholder="Enter the Passkey" ng-model="passkey"></td>
+     </tr>
+     <span style="color:red;float:right;">{{resultspan}}</span>
+ </table>
+<button type="submit " style="
+float:right;
+margin-top: 4%
+
+">Enter To Test</button>
+</form>
+</div>

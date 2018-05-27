@@ -1,38 +1,62 @@
 var express=require("express");
 const router=express.Router();
-router.post('/doLogin',function(req,res){
-    var id=req.body.id;
-    var password=req.body.password;
-    console.log(id+"  "+password)
-     let path=require("path");
-      let fullpath=path.join(__dirname,'/public/studentFront/welcome.html');
-      if(id==password){
-        req.session.uid=id;
-        pt="/";
-       res.send({path:fullpath});
-      }
-          else{
-        
-           res.status(201);
-           res.send('/');
-    }
-});
-router.post('/doWelcome',function(req,res){
-    if(req.session.uid){
-        let path=require("path");
-        let fullpath=path.join(__dirname,'/public/studentFront/welcome.html');
-      //  res.sendFile(fullpath);
-      res.send({id:req.session.uid})
+const path=require("path");
+var crud=require('../../crud/studentCRUD');
+
+function checkSession(req,res){
+    if(req.session.studentid){
+        return true;
     }
     else{
-        let path=require("path");
-        let fullpath=path.join(__dirname,'/public/studentFront/studentLogin.html');
-        //res.sendFile(fullpath);
-        res.status(201);
-        res.send({id:"error"});
+        res.send({data:"session-expired"});
+        return false;
+    }
+}
+
+
+
+router.post('/doLogin',function(req,res){
+    crud.doLogin(req,res);
+    
+});
+router.get('/dashboard',function(req,res){
+
+    if(req.session.studentid){
+        res.render('studentWelcome');
+    }
+    else{
+        res.redirect('/#/studentLogin')
     }
 });
 router.post('/doRegistration',function(req,res){
 
+});
+router.post("/studetTestLogin",function(req,res){
+    if (checkSession(req,res)){
+              crud.studetTestLogin(req,res);
+    }
+})
+router.get('/tests',function(req,res){
+    if(req.session.studentid&&req.session.testid){
+        res.render('test',{mail:req.session.studentid});
+    }
+    else{
+        res.redirect('/#/studentLogin');
+    }
+})
+router.post('/getTest',function(req,res){
+    if(checkSession(req,res)){
+        crud.getTest(req,res);
+    }
+});
+router.post('/submitTest',function(req,res){
+    if(checkSession(req,res)){
+        crud.submitTest(req,res);
+    }
+});
+router.post('/testDetails',function(req,res){
+    if(checkSession(req,res)){
+        crud.testDetails(req,res);
+    }
 });
 module.exports=router;

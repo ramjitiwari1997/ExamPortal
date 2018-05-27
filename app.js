@@ -20,8 +20,16 @@ const student=require("./routes/student/studentroute.js");
 app.use('/student',student);
 const teacher=require("./routes/teacher/teacherroute.js");
 app.use('/teacher',teacher);
-
-
+app.post('/logout',function(req,res){
+    req.session.destroy(function(err){
+        if(err){
+            res.send({data:err})
+        }
+        else{
+            res.send({data:'success'})
+        }
+    })
+})
 
 app.get('/welcome',function(req,res){
     if(req.session.uid){

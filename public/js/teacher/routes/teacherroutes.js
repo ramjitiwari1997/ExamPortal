@@ -6,6 +6,12 @@ app.config(function($routeProvider,$locationProvider){
     }).when('/addQuestion',{
         templateUrl:"../teacherFront/question.html",
         controller:"teacherQuestionCtrl"
+    }).when('/testresults',{
+     templateUrl:"../teacherFront/testresult.html"  ,
+     controller:'testresultCtrl' 
+    }).when('/logout',{
+        templateUrl:'../teacherFront/logout.html',
+        controller:'logoutCtrl'
     }).otherwise({
         templateUrl:"../teacherFront/home.html",
         controller:"teacherHomeCtrl"

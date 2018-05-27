@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script  src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script  src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script  src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen"> 
+
+    <script  src='../js/app.js' type='text/javascript'></script>
+    <script src="../js/student/model/studentModel.js"></script>
+    <script src="../js/student/controller/testloginCtrl.js"></script>
+    <script src="../js/student/controller/mytestCtrl.js"></script>
+    <script src="../js/student/controller/logout.js"></script>
+    <script src="../js/student/routes/route.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body ng-app="myapp">
+   <header>
+            <div id="header">
+                
+                <img src="../images/rkgitlogo.jpg" alt="">
+                 <h1>RAJ KUMAR GOEL INSTITUTE OF TECHNOLOGY</h1>
+                
+        </div>
+        <div class="row mr-none">
+          <nav class="navbar navbar-inverse greeen">
+                <div class="container-fluid col-lg-10 pl-50">
+                  <div class="navbar-header  ">
+                    <a class="active navbar-brand txtcolor" href="#">ONLINE edu-BASE SYSTEM</a>
+                  </div>
+                  <ul class="nav navbar-nav nav-background">
+                    <li class="act "><a href="#" class="txtcolor">Home</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle txtcolor" data-toggle="dropdown" ng-href="#mytests">Your Tests <span class="caret"></span></a>
+                      
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle txtcolor" data-toggle="dropdown" ng-href="#testlogin">Give Tests<span class="caret"></span></a>
+                        
+                      </li>
+                  </ul>
+                  <span style="float: right;padding-top: 10px;cursor: pointer;"> <a ng-href="#logout">Logout</a></span>
+                </div>
+
+            </nav>
+        </div>
+        </header>
+        
+        <div class="container-fluid body-content">
+         <ng-view>
+         </ng-view>
+        </div>
+        <footer>
+                        <div>
+                          <div id="connect"> <a href="#"><img src="../images/icon-facebook.gif" alt="" /></a> <a href="#"><img src="../images/icon-twitter.gif" alt="" /></a> <a href="#"><img src="../images/icon-youtube.gif" alt="" /></a> </div>
+                          <div class="section">
+                            <ul>
+                              <li><a href="index.html">Home</a></li>
+                              <li><a href="about.html">About Us</a></li>
+                              <li class="last"><a href="contact-us.html">Contact us</a></li>
+                            </ul>
+                              <p>Copyright &copy; <a href="http://www.rkgit.edu.in/" target="_blank">www.rkgit.edu.in</a> - All Rights Reserved</p>
+                          </div>
+                        </div>
+                    
+        </footer>
+</body>
+</html>

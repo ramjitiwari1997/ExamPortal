@@ -14,6 +14,7 @@ app.controller('teacherTestsCtrl',function($scope,teacherFact){
 
         }
         else{
+            console.log(data);
             alert("cant save");
         }
     }
@@ -37,8 +38,8 @@ app.controller('teacherTestsCtrl',function($scope,teacherFact){
         console.log(err);
         }
     }
-    $scope.delete=function(name){
-        let promise=teacherFact.do('../teacher/deleteTest',{testname:name});
+    $scope.delete=function(testid){
+        let promise=teacherFact.do('../teacher/deleteTest',{testid:testid});
         promise.then(success,fail);
         function success(data){
             if(data.data.data=="success"){
@@ -59,8 +60,30 @@ app.controller('teacherTestsCtrl',function($scope,teacherFact){
     $scope.edit=function(name){
         alert(" editing...."+name);
     }
-    $scope.publish=function(name){
-        alert("publishing....."+name);
+    $scope.publish=function(testid){
+        teacherFact.do('../teacher/publishtest',{testid:testid}).then((data)=>{
+                      if(data.data.data==="success"){
+                          alert("Test Published Successfully");
+                          printTest();
+                      }
+                      else{
+                          alert("oops can't publish try again later");
+                      }
+                      
+        },(err)=>{
+            alert("oops can't publish server error found try again later");
+        })
+    }
+    $scope.logout=function(){
+        let promise=teacherFact.do('/logout');
+        promise.then(data=>{
+          if(data.data.data=='success')
+          location.reload();
+          else
+          alert("oops can't Logout this time")
+        },fail=>{
+
+        })
     }
     });
 
