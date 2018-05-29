@@ -128,9 +128,14 @@ getStudents:function(req,res){
         }
     })
     },
+
+
+
+
+
+
     reset(req,res){
         let form=req.body.form;
-        console.log(form)
     db.update({id:form.id,name:form.name,password:form.password},function(err,docs){
         if(err){
             res.send({data:'error'})
