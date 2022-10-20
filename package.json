@@ -17,7 +17,7 @@
     "ejs": "^2.5.7",
     "express": "^4.16.1",
     "express-session": "^1.15.6",
-    "mongoose": "^4.12.0",
+    "mongoose": "^4.13.21",
     "nodemailer": "^4.6.4",
     "notp": "^2.0.3",
     "npm": "^6.0.0"
